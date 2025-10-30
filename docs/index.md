@@ -16,6 +16,10 @@ More details coming soon!
 
 [NIH FCOI Policy](./nih-fcoi-policy.md)
 
+## Projects
+
+* [Iris 128](./Iris-128/index.md)
+
 ## Contact
 
 * For all inquiries, please contact [info@openic.org](mailto:info@openic.org)
