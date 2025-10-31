@@ -5,8 +5,7 @@ site_author: Manuel Monge
 # Navigation
 nav:
   - Home: index.md
-  - Iris-128:
-    - iris-128/index.md
+  - Iris 128: iris-128/index.md
 
 # Repository
 repo_name: openic-org/home
