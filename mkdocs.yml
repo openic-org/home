@@ -20,10 +20,6 @@ theme:
   favicon: assets/logo.png
   features:
     - navigation.instant
-    - navigation.tabs
-    - navigation.path
-    - toc.follow
-    - header.autohide
 
 extra_css:
   - stylesheets/extra.css
