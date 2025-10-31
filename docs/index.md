@@ -18,7 +18,7 @@ More details coming soon!
 
 ## Projects
 
-* [Iris 128](./Iris-128/index.md)
+* [Iris 128](./iris-128/index.md)
 
 ## Contact
 

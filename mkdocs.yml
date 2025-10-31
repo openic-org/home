@@ -2,6 +2,13 @@ site_name: OpenIC
 site_url: https://openic.org
 site_author: Manuel Monge
 
+# Navigation
+nav:
+  - Home: index.md
+  - Projects:
+    - Iris 128:
+      - iris-128/index.md
+
 # Repository
 repo_name: openic-org/home
 repo_url: https://github.com/openic-org/home
@@ -12,6 +19,15 @@ copyright: Copyright &copy; 2024 - 2025 Manuel Monge
 theme:
   name: material
   logo: assets/logo.png
+  favicon: assets/logo.png
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - navigation.sections
+    - navigation.path
+    - navigation.indexes
+    - toc.follow
+    - header.autohide
 
 extra_css:
   - stylesheets/extra.css
