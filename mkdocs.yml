@@ -21,9 +21,7 @@ theme:
   features:
     - navigation.instant
     - navigation.tabs
-    - navigation.sections
     - navigation.path
-    - navigation.indexes
     - toc.follow
     - header.autohide
 
