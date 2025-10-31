@@ -5,7 +5,7 @@ site_author: Manuel Monge
 # Navigation
 nav:
   - Home: index.md
-  - Iris 128:
+  - Iris-128:
     - iris-128/index.md
 
 # Repository
