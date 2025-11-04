@@ -6,19 +6,23 @@ We are interested in all IC R&D areas and will initially focus on Biomedical App
 
 More details coming soon!
 
-## Meet the Team
-
-|    Members   |     Position    |                      Website                      |
-| :----------: | :-------------: | :-----------------------------------------------: |
-| Manuel Monge | Founder and CEO | [manuelmonge.site](https://www.manuelmonge.site/) |
-
-## NIH FCOI Policy
-
-[NIH FCOI Policy](./nih-fcoi-policy.md)
-
 ## Projects
 
-* [Iris 128](./iris-128/index.md)
+<div class="grid cards" markdown>
+
+-   :material-flower:{ .lg .middle } [**Iris 128**](./iris-128/index.md)
+
+    ---
+
+    128-Channel Intan-based headstages.
+
+-   :fontawesome-solid-microchip:{ .lg .middle } **ASICs**
+
+    ---
+
+    Coming soon.
+
+</div>
 
 ## Contact
 
