@@ -17,6 +17,7 @@ nav:
       - Headstage: iris-128/iris-128s/headstage.md
       - Quickstart: iris-128/iris-128s/quickstart.md
   - Tutorials:
+    - tutorials/index.md
     - Xschem with Pcells: tutorials/xschem-pcell.md
 
 # Repository
@@ -32,7 +33,6 @@ theme:
   favicon: assets/logo.png
   features:
     - navigation.instant
-    - navigation.tabs
     - navigation.sections
     - navigation.path
     - navigation.indexes
