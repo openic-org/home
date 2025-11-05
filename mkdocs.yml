@@ -7,8 +7,17 @@ nav:
   - Home: index.md
   - Iris 128: 
     - iris-128/index.md
-    - Iris 128s: iris-128/iris-128s/iris-128s.md
-  - Xschem with Pcells: tutorials/xschem-pcell.md
+    - Iris 128B:
+      - iris-128/iris-128b/index.md
+      - Headstage: iris-128/iris-128b/headstage_iris128B.md
+      - Adapter: iris-128/iris-128b/adapter_iris128B.md
+      - Quickstart: iris-128/iris-128b/quickstart_iris128B.md
+    - Iris 128S: 
+      - iris-128/iris-128s/index.md
+      - Headstage: iris-128/iris-128s/headstage.md
+      - Quickstart: iris-128/iris-128s/quickstart.md
+  - Tutorials:
+    - Xschem with Pcells: tutorials/xschem-pcell.md
 
 # Repository
 repo_name: openic-org/home
@@ -23,6 +32,11 @@ theme:
   favicon: assets/logo.png
   features:
     - navigation.instant
+    - navigation.tabs
+    - navigation.sections
+    - navigation.path
+    - navigation.indexes
+    - navigation.top
     - content.code.copy
     - content.code.select
     - content.tabs.link
