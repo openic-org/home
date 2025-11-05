@@ -6,7 +6,7 @@ These headstages include source developed at the Deku Lab (https://deku.uoregon.
 THIRD-PARTY COMPONENTS
 This project includes third-party component models (schematic symbols, PCB footprints, and/or 3D models) obtained from their respective manufacturers. These materials are included solely for design reference and compatibility, and are not covered by this project’s open-source license (e.g., Apache v2.0). Each manufacturer retains ownership of its respective intellectual property. 
 
-https://github.com/openic-org/iris-128/tree/main/iris-128b/pcb/libraries, https://github.com/openic-org/iris-128/tree/main/iris-128b-adapter/pcb/libraries, https://github.com/openic-org/iris-128/tree/main/iris-128s/pcb/libraries, and https://github.com/openic-org/iris-128/tree/main/iris-128s-adapter/pcb/libraries
+https://docs.openic.org/iris-128/iris-128b and https://docs.openic.org/iris-128/iris-128s
 Samtec SEAM8 series connector, obtained from Samtec Inc.
 Samtec TLW series connector, obtained from Samtec Inc.
 Samtec SLW series connector, obtained from Samtec Inc.

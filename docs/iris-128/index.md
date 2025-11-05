@@ -8,8 +8,8 @@ Open-source 128-channel headstages for neural stimulation and recording.
 
 | Type | Description |
 | :--: | :---------- |
-| [Iris-128B](#)  | Fully bidirectional headstage with recording or stimulation across all 128 electrode channels. |
-| [Iris-128S](iris-128s/iris-128s.md) | Selective stimulation headstage with recording from 128 channels and stimulation on 16 simultaneous channels out of 32 available stimulation channels. |
+| [Iris-128B](iris-128b/index.md)  | Fully bidirectional headstage with recording or stimulation across all 128 electrode channels. |
+| [Iris-128S](iris-128s/index.md) | Selective stimulation headstage with recording from 128 channels and stimulation on 16 simultaneous channels out of 32 available stimulation channels. |
 | [Thin-film electrode](#) | 128 channel surface array used as a test platform for the headstages. |
 
 ## EDA Tools used in the Development
@@ -39,7 +39,7 @@ Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 
-    http://www.apache.org/licenses/LICENSE-2.0
+[http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS,

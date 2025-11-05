@@ -15,6 +15,7 @@ nav:
     - Iris 128S: 
       - iris-128/iris-128s/index.md
       - Headstage: iris-128/iris-128s/headstage.md
+      - Adapter: iris-128/iris-128s/adapter.md
       - Quickstart: iris-128/iris-128s/quickstart.md
   - Tutorials:
     - tutorials/index.md
