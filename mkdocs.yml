@@ -1,4 +1,4 @@
-site_name: OpenIC
+site_name: OpenIC Documentation
 site_url: https://openic.org
 site_author: Manuel Monge
 
@@ -22,8 +22,8 @@ nav:
     - Xschem with Pcells: tutorials/xschem-pcell.md
 
 # Repository
-repo_name: openic-org/home
-repo_url: https://github.com/openic-org/home
+repo_name: openic-org/docs
+repo_url: https://github.com/openic-org/docs
 
 # Copyright
 copyright: Copyright &copy; 2024 - 2025 Manuel Monge

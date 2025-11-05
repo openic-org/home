@@ -1,29 +1,152 @@
 # Iris-128S Quickstart Guide
 
-Text.
+!!! info Paper
+    Open-Source 128-Channel Headstage for Neural Recording and Stimulation
+	*(Based on Jacobs et al., 2025 – “Iris 128x: Open-Source 128-Channel Headstages for Neural Stimulation and Recording”)*
+
+---
+
+## 1. System Overview
+
+The `Iris-128S` neural interface consists of a `headstage` and an `adapter`, and provides with 128-channel, selective bidirectional recording and stimulation capability using two `RHD2164` and one `RHS2116` Intan integrated amplifier and amplifier/stimulation chips. It interfaces with *thin-film microelectrode arrays* through a Samtec `SEAF8` connector and communicates with an Intan RHD Controller and a RHS Controller via low-voltage differential signaling (LVDS) through Intan Omnetics cables. The `headstage` and `adapter` are connected with a `36-wire custom cable`. A microcontroller (MCU) in the `adapter` can be programmed with a MCU-compatible programmer.
+
+The architecture of `Iris-128S` neural interface is shown in the figure below.
+
+```mermaid
+graph LR
+    c0("128-Ch
+        Electrode
+        Array")
+    c1("`**Iris-128S
+	    Headstage**`")
+    c2("`**Iris-128S
+	    Adapter**`")
+    c3("Intan RHD
+        Controller")
+    c4("Intan RHS
+        Controller")
+    c5("Programmer")
+	c6("Computer")
+    c0 <--> c1
+    c1 <-- 36-Wire Custom Cable --> c2
+    c2 <-- 12-Pin Intan Cable --> c3
+    c2 <-- 16-Pin Intan Cable --> c4
+    c2 <-- 10-Pin Flat Cable --> c5
+	c3 <--> c6
+	c4 <--> c6
+	c5 <--> c6
+```
+<p style="text-align:center"><i><b>Figure 1.</b> System Architecture of Iris-128S.</i></p>
+
+---
+
+## 2. Hardware Components
+
+List of required components:
+
+* Iris-128S Headstage
+* Iris-128S Adapter
+* 36-Wire Custom Cable
+* 160-pin Samtec SEAF8 connector
+* Electrode Array
+* Intan RHD Controller
+* Intan RHS Controller
+* 12-Pin Intan Cable
+* 16-Pin Intan Cable
+* 10-Pin Flat Cable
+* STLINK-V3 Programmer
+* Computer
+
+### 2.1. Iris-128S Headstage
+
+The figure below shows the different components of the headstage.
+
+<div class="grid" markdown>
+
+![](../images/iris-128s-headstage-marked-top.jpg)
+
+![](../images/iris-128s-headstage-marked-bottom.jpg)
+
+</div>
+
+<p style="text-align:center"><i><b>Figure 2.</b> Photos of the Headstage (left) top and (right) bottom sides indicating its main components.</i></p>
+
+<br>
+
+The table below shows the main components of the Iris-128S headstage. Note the component correspondance with the previous figure.
+
+<p style="text-align:center"><i><b>Table 2.</b> Main components of the Iris-128S Headstage.</i></p>
+
+| Component | Description | Value |
+| :-------- | :---------- | :---- |
+| STLINK-V3 | MCU programmer.     | |
+| Computer  | With ST development tools, Git | |
+| 36-Wire Cable | Plug this cable to the Headstage and Controller. | |
+| Intan Rec Controller Cable with Adapter Board | Plug this cable to the 12-pin Omnetics connector. | |
+| Intan Stim Controller Cable with Adapter Board | Plug this cable to the 16-pin Omnetics connector. | |
+| Programming cable | Plug this cable to the 10-pin 0.5' connector. | |
+| VDD1 | Powers R64 chips in headstage and PMU in controller. | +3.3 V |
+| VDD2 | Powers S16 chip in headstage. | +3.3 V |
+| VSTIMp | Powers S16 chip in headstage. | +7 V |
+| VSTIMm | Powers S16 chip in headstage. | -7 V |
+| GNDs | Controller GND with Supplies GND. | 0 V |
+
+<br>
+
+### 2.2. Adapter
+
+### 2.3. 36-Wire Custom Cable
+
+
+---
+
+## 3. Programming the Adapter MCU
+
+---
+
+## 4. Hardware Setup
+
+---
+
+## 5. Software Setup
+
+---
+
+## 6. Power-Up Sequence
+
+---
+
+## 7. Bench & Animal Setup Checklist
+
+---
+
+## 8. Performance Summary
+
+---
+
+## 9. Stimulation Parameters
+
+---
+
+## 10. Additional Notes
+
+---
+
+## 11. Reference Setup Recipe
+
+| Reference Setup |
+| :-------------- |
+| 1. Connect all GNDs in the system. |
+| 2. Connect electrode array -> headstage -> adapter -> Intan Controllers. |
+| 3. Verify REF/GND connections (platinum wire, bone screw, headstage ground, system ground). |
+| 4. Power on Intan RHS Controller and RHD Controller and confrim communication with headstage. |
+| 5. Update MCU firmware if needed. |
+| 6. Begin recording and stimulation tests. |
 
 
 
-## Connections
 
 
-
-| Connection                                     | Description                                          | Value                 |
-| ---------------------------------------------- | ---------------------------------------------------- | --------------------- |
-| Power Supplies                                 | Linear power supply with 3 outputs.                  | +3.3 V, +7 V, and -7V |
-| STLINK-V3                                      | MCU programmer.                                      |                       |
-| Computer                                       | With ST development tools, Git                       |                       |
-| 36-Wire Cable                                  | Plug this cable to the Headstage and Controller.     |                       |
-| Intan Rec Controller Cable with Adapter Board  | Plug this cable to the 12-pin Omnetics connector.    |                       |
-| Intan Stim Controller Cable with Adapter Board | Plug this cable to the 16-pin Omnetics connector.    |                       |
-| Programming cable                              | Plug this cable to the 10-pin 0.5' connector.        |                       |
-| VDD1                                           | Powers R64 chips in headstage and PMU in controller. | +3.3 V                |
-| VDD2                                           | Powers S16 chip in headstage.                        | +3.3 V                |
-| VSTIMp                                         | Powers S16 chip in headstage.                        | +7 V                  |
-| VSTIMm                                         | Powers S16 chip in headstage.                        | -7 V                  |
-| GNDs                                           | Controller GND with Supplies GND                     | 0 V                   |
-| Logic Analyzer                                 | For debugging                                        |                       |
-| Oscilloscope                                   | For debugging                                        |                       |
 
 
 
