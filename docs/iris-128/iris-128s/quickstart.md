@@ -28,10 +28,14 @@ graph LR
     c5("Programmer")
 	c6("Computer")
     c0 <--> c1
-    c1 <-- 36-Wire Custom Cable --> c2
-    c2 <-- 12-Pin Intan Cable --> c3
-    c2 <-- 16-Pin Intan Cable --> c4
-    c2 <-- 10-Pin Flat Cable --> c5
+    c1 <-- 36-Wire
+	       Custom Cable --> c2
+    c2 <-- 12-Pin
+	       Intan Cable --> c3
+    c2 <-- 16-Pin
+	       Intan Cable --> c4
+    c2 <-- 10-Pin
+	       Flat Cable --> c5
 	c3 <--> c6
 	c4 <--> c6
 	c5 <--> c6
@@ -65,7 +69,7 @@ The figure below shows the different components of the headstage.
 
 ![](../images/iris-128s-headstage-marked-bottom.jpg)
 
-<p style="text-align:center"><i><b>Figure 2.</b> Photos of the Headstage (top) top and (bottom) bottom sides indicating its main components.</i></p>
+<p style="text-align:center"><i><b>Figure 2.</b> Photos of the Headstage top and bottom sides indicating its main components.</i></p>
 
 <br>
 
@@ -179,10 +183,21 @@ The table below shows the main components of the Iris-128S headstage. Note the c
 
 ### 2.3. 36-Wire Custom Cable
 
+![](../images/iris-128s-36-pin-cable.jpg)
+
 ---
 
 ### 2.4. Adapter
 
+The figure below shows the different components of the headstage.
+
+![](../images/iris-128s-adapter-marked-top.jpg)
+
+![](../images/iris-128s-adapter-marked-bottom.jpg)
+
+<p style="text-align:center"><i><b>Figure 2.</b> Rendering of the Adapter top and bottom sides indicating its main components.</i></p>
+
+<br>
 
 ---
 
