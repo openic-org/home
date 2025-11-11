@@ -1,6 +1,8 @@
 # Iris-128B Quickstart Guide
-*Open-Source 128-Channel Headstage for Neural Recording and Stimulation*  
-*(Based on Jacobs et al., 2025 – “Iris 128x: Open-Source 128-Channel Headstages for Neural Stimulation and Recording”)*  
+
+!!! info Paper
+    Open-Source 128-Channel Headstage for Neural Recording and Stimulation
+	*(Based on Jacobs et al., 2025 – “Iris 128x: Open-Source 128-Channel Headstages for Neural Stimulation and Recording”)*
 
 ---
 

@@ -30,6 +30,8 @@ graph LR
 ```
 <p style="text-align:center"><i><b>Figure 2.</b> System Architecture of Iris-128S.</i></p>
 
+<br>
+
 ![Iris-128S System](../images/iris-128s-schematic.jpg)
 <p style="text-align:center"><i><b>Figure 3.</b> Schematic of Iris-128S.</i></p>
 
@@ -37,9 +39,9 @@ Here are the descriptions of each component.
 
 |       Component       |            Page             |
 | :-------------------: | :-------------------------: |
-|       Headstage       | [Headstage](headstage.md)   |
-|       Adapter         | [Adapter](adapter.md)       |
-|         MCU           | [MCU](mcu.md)               |
+|       Headstage       | [Headstage](headstage_iris128s.md)   |
+|       Adapter         | [Adapter](adapter_iris128s.md)       |
+|         MCU           | [MCU](mcu_iris128s.md)               |
 
 
 ## Specifications
