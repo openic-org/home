@@ -251,20 +251,20 @@ The target PCB stack is shown below, with a total thickness of 1 mm.
 
 #### Headstage PCB Vias
 
-| Layer | Via1 | &mu;-via1 | &mu;-via2 | &mu;-via3 | &mu;-via4 | &mu;-via5 | &mu;-via6 | &mu;-via7 |
-| :---: | :--: | :-------: | :-------: | :-------: | :-------: | :-------: | :-------: | :-------: |
-| 1 | :octicons-dash-24: | :octicons-dash-24::octicons-dash-24::octicons-dash-24: | | | | | | |
-|   | \|                 | \|                 | | | | | | |
-| 2 | \|                 | :octicons-dash-24: | --- | | | | | |
-|   | \|                 |                    | \|                 | | | | | |
-| 3 | \|                 |                    | --- | :octicons-dash-24: | | | | |
-|        |  $\textbar$   |               |               |  $\textbar$   |               |               |               |               |
-|   4    |  $\textbar$   |               |               | $\textemdash$ | $\textemdash$ |               |               |               |
-|        |  $\textbar$   |               |               |               |  $\textbar$   |               |               |               |
-|   5    |  $\textbar$   |               |               |               | $\textemdash$ | $\textemdash$ |               |               |
-|        |  $\textbar$   |               |               |               |               |  $\textbar$   |               |               |
-|   6    |  $\textbar$   |               |               |               |               | $\textemdash$ | $\textemdash$ |               |
-|        |  $\textbar$   |               |               |               |               |               |  $\textbar$   |               |
-|   7    |  $\textbar$   |               |               |               |               |               | $\textemdash$ | $\textemdash$ |
-|        |  $\textbar$   |               |               |               |               |               |               |  $\textbar$   |
-|   8    | $\textemdash$ |               |               |               |               |               |               | $\textemdash$ |
+| Layer | Via1 | &mu;Via1 | &mu;Via2 | &mu;Via3 | &mu;Via4 | &mu;Via5 | &mu;Via6 | &mu;Via7 |
+| :---: | :--: | :------: | :------: | :------: | :------: | :------: | :------: | :------: |
+| 1 | ----- | :octicons-dash-24::octicons-dash-24::octicons-dash-24: |  |  |  |  |  |  |
+|   | \|    | \|                 | | | | | | |
+| 2 | \|    | :octicons-dash-24: | --- | | | | | |
+|   | \|    |                    | \|                 | | | | | |
+| 3 | \|    |                    | --- | :octicons-dash-24: | | | | |
+|   | \|    |               |               |  $\textbar$   |               |               |               |               |
+| 4 | \|    |               |               | $\textemdash$ | $\textemdash$ |               |               |               |
+|   | \|    |               |               |               |  $\textbar$   |               |               |               |
+| 5 | \|    |               |               |               | $\textemdash$ | $\textemdash$ |               |               |
+|   | \|    |               |               |               |               |  $\textbar$   |               |               |
+| 6 | \|    |               |               |               |               | $\textemdash$ | $\textemdash$ |               |
+|   | \|    |               |               |               |               |               |  $\textbar$   |               |
+| 7 | \|    |               |               |               |               |               | $\textemdash$ | $\textemdash$ |
+|   | \|    |               |               |               |               |               |               |  $\textbar$   |
+| 8 | ----- |              |               |               |               |               |               | $\textemdash$ |
