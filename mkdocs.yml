@@ -14,9 +14,9 @@ nav:
       - Quickstart: iris-128/iris-128b/quickstart_iris128B.md
     - Iris 128S: 
       - iris-128/iris-128s/index.md
-      - Headstage: iris-128/iris-128s/headstage.md
-      - Adapter: iris-128/iris-128s/adapter.md
-      - Quickstart: iris-128/iris-128s/quickstart.md
+      - Headstage: iris-128/iris-128s/headstage_iris128s.md
+      - Adapter: iris-128/iris-128s/adapter_iris128s.md
+      - Quickstart: iris-128/iris-128s/quickstart_iris128s.md
   - Tutorials:
     - tutorials/index.md
     - Xschem with Pcells: tutorials/xschem-pcell.md

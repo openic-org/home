@@ -253,11 +253,11 @@ The target PCB stack is shown below, with a total thickness of 1 mm.
 
 | Layer | Via1 | &mu;-via1 | &mu;-via2 | &mu;-via3 | &mu;-via4 | &mu;-via5 | &mu;-via6 | &mu;-via7 |
 | :---: | :--: | :-------: | :-------: | :-------: | :-------: | :-------: | :-------: | :-------: |
-| 1 | :octicons-dash-24: | :octicons-dash-24: | | | | | | |
+| 1 | :octicons-dash-24: | :octicons-dash-24::octicons-dash-24::octicons-dash-24: | | | | | | |
 |   | \|                 | \|                 | | | | | | |
-| 2 | \|                 | :octicons-dash-24: | :octicons-dash-16: | | | | | |
+| 2 | \|                 | :octicons-dash-24: | --- | | | | | |
 |   | \|                 |                    | \|                 | | | | | |
-| 3 | \|                 |                    | :octicons-dash-16: | :octicons-dash-24: | | | | |
+| 3 | \|                 |                    | --- | :octicons-dash-24: | | | | |
 |        |  $\textbar$   |               |               |  $\textbar$   |               |               |               |               |
 |   4    |  $\textbar$   |               |               | $\textemdash$ | $\textemdash$ |               |               |               |
 |        |  $\textbar$   |               |               |               |  $\textbar$   |               |               |               |
