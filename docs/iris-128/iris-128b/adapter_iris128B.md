@@ -6,7 +6,7 @@
 
 *The Iris 128B system consists of 2 boards: the headstage and the adapter.*
 
-* The **adapter board** receives signals from the headstage (through the 80 pin nanopitch Molex connector and cable) and breaks them out into cables that interface with the **Intan Rec/Stim Controller**.
+* The adapter board receives signals from the headstage (through the 80 pin nanopitch Molex connector and cable) and breaks them out into cables that interface with the Intan Rec/Stim Controller.
 
 This is a board with no active components on it. It's purpose is simply to route the connections from the Iris-128B headstage to the power supply, and the four ports on the Intan RHS controller. It also has some header pins intended for testing the SPI connections.
 

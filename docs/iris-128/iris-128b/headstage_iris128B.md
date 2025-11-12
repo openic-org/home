@@ -5,8 +5,8 @@
 
 *The Iris 128B system consists of 2 boards: the headstage and the adapter.*
 
-* The **headstage** is a small electronic system placed on top of or near the electrophysiological signals being recorded.
-* It uses **commercially available off-the-shelf components**.
+* The headstage is a small electronic system placed on top of or near the electrophysiological signals being recorded.
+* It uses commercially available off-the-shelf components.
 
 ### Fabrication Notes
 
@@ -14,17 +14,17 @@ The cable used to connect the headstage to the adapter board is Molex 8X STR NPI
 
 If you are able to use the Molex nanopitch cables, please note:
 
-* In this design, pins *Chip 5 – MOSI+* and *Chip 5 – MOSI–* connect to **unused pins** on the cable (A20 and A21). To address this we modified the cable by adding wires to it after it was ordered.
+* In this design, pins *Chip 5 – MOSI+* and *Chip 5 – MOSI–* connect to unused pins on the cable (A20 and A21). To address this we modified the cable by adding wires to it after it was ordered.
 
 #### Headstage Cost Breakdown
 
-- **8 × $392** — RHS2116 chips  
-- **1 × $24** — SEAM8-20-S02.0-S-08-3 connector  
-- **1 × $67** — NPIO / 8X STR NPIO 2PC LATCH 34A cable **_(DISCONTINUED AS OF AUG. 2025)_**  
-- **1 × $11** — CONN NANO-PITCH I/O RCPT 80P RA connector  
-- **$125** — 1 headstage printed circuit board  
-- **$60** — 1 adapter printed circuit board  
-- **4 × $265** — RHS interface cables  
+- 8 × $392 — RHS2116 chips  
+- 1 × $24 — SEAM8-20-S02.0-S-08-3 connector  
+- 1 × $67 — NPIO / 8X STR NPIO 2PC LATCH 34A cable **_(DISCONTINUED AS OF AUG. 2025)_**  
+- 1 × $11 — CONN NANO-PITCH I/O RCPT 80P RA connector  
+- $125 — 1 headstage printed circuit board  
+- $60 — 1 adapter printed circuit board  
+- 4 × $265 — RHS interface cables  
 
 ----
 
@@ -46,13 +46,13 @@ If you are able to use the Molex nanopitch cables, please note:
 
 *This is the output/input that interfaces with the electrophysiological signals.*
 
-We are currently using the **SEAM8 Samtec connector** for interfacing with a 128-ch electrode array.
+We are currently using the SEAM8 Samtec connector for interfacing with a 128-ch electrode array.
 The footprint on the headstage is shown below.
 
-The left and right two rows are dedicated for **GND** and **REF** connectors.
-The remaining **16×8** are for connecting to the 128 electrodes. All the GND for the chips, power supplies, and thin-film are shared.
+The left and right two rows are dedicated for GND and REF connectors.
+The remaining 16×8 are for connecting to the 128 electrodes. All the GND for the chips, power supplies, and thin-film are shared.
 
-This is the same footprint/connector used with **BlackRock Cereplex E headstages**, maintaining compatibility with interchangeable thin-film interfaces.
+This is the same footprint/connector used with BlackRock Cereplex E headstages, maintaining compatibility with interchangeable thin-film interfaces.
 
 ![Iris-128](../images/iris-128b-160connector.jpg)
 
@@ -60,18 +60,18 @@ This is the same footprint/connector used with **BlackRock Cereplex E headstages
 
 ### Chip1 through Chip8
 
-These are **RHS2116 chips** (QFN package) from Intan Technologies.
-There are 8 total chips (16 electrodes each) communicating with the controller via **SPI (Serial Peripheral Interface)**. 
+These are RHS2116 chips (QFN package) from Intan Technologies.
+There are 8 total chips (16 electrodes each) communicating with the controller via SPI (Serial Peripheral Interface). 
 
 ![Iris-128](../images/iris-128b-chip.jpg)
 
-*Fig. 2. Footprint of RHS2116 on Iris128B with broadly labeled pins. See the Intan RHS2116 datasheet for specific details. *
+*Fig. 3. Footprint of RHS2116 on Iris128B with broadly labeled pins. See the Intan RHS2116 datasheet for specific details. *
 
 The reference and ground pins can be shorted or disconnected using the pads shown below.
 
 ![Iris-128](../images/iris-128b-gndref.jpg)
 
-*Fig. 3. Footprint location of pads to short ref and gnd. Also seen here are the plated through holes on the left where gnd and ref wires can be soldered.*
+*Fig. 4. Footprint location of pads to short ref and gnd. Also seen here are the plated through holes on the left where gnd and ref wires can be soldered.*
 
 Digital (SPI) communication lines to each of the 8 chips:
 
@@ -101,9 +101,9 @@ For comparison:
 
 ![Iris-128](../images/iris-128b-molex.jpg)
 
-*Fig. 4. Footprint of Molex 76 POS connector on Iris128B with broadly labeled pins. Any unlabled pins are digital communication lines to the chips. Not the x for NC pins due to the commericially available cable assembly.*
+*Fig. 5. Footprint of Molex 80 pin connector on Iris128B with broadly labeled pins. Any unlabled pins are digital communication lines to the chips. Not the x for NC pins due to the commericially available cable assembly.*
 
-SPI lines are routed through the **adapter board** to the **Intan RHS controller ports A–D**.
+SPI lines are routed through the adapter board to the Intan RHS controller ports A–D.
 SCLK and CS lines are shared between all chips, while data input/output lines are individually connected.
 
 ### Layers

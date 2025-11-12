@@ -355,7 +355,15 @@ To program the MCU, we use the `STM32CubeProgrammer`. Connect the `STLINK-V3` to
 
 ### Changing the State of the Switches
 
-You can change the state of each of the switches in the eight octal `ADGS5414` by updating the values of the constants shown below. Notice that the bit `swX[Y]` corresponds to the `Y` switch of component `uX`. The value of `0` indicates the switch is open whereas the `1` indicates it is closed.
+You can change the state of each of the switches in the eight octal `ADGS5414` by updating the values of the constants shown below. Notice that the bit `swX[Y]` corresponds to the `Y` switch of component `uX`, where `X`,`Y` $\in \{1,2,...8 \}$ . The value of `0` indicates the switch is open whereas the `1` indicates it is closed.
+
+| Function    | Actions |
+| :---------: | :------------------- |
+| Recording   | `OPEN` the switch to the RHS2116 and `CLOSE` the one to the RHD2164. |
+| Stimulation | `CLOSE` the switch to the RHS2116 and `OPEN` the one to the RHD2164. |
+
+
+#### Example Code
 
 ```c
 /* Switches states: swX=[7..0] */
@@ -369,6 +377,9 @@ const char sw6 = (char)(0b11111111);
 const char sw7 = (char)(0b00000000);
 const char sw8 = (char)(0b00000000);
 ```
+
+!!! Warning
+	When configuring a stimulation channel, make sure to `OPEN` the switch connected to the `RHD2164`. Failure to do so can cause damage to the `RHD2164` due to the possibility of higher than expected voltages at its input.
 
 <br>
 
@@ -497,11 +508,9 @@ The current use of the MCU is to program the state of the switches in the headst
 
 ## 11. Reference Setup Recipe
 
-| Reference Setup |
-| :-------------- |
-| 1. Connect all GNDs in the system. |
-| 2. Connect electrode array :octicons-arrow-right-24: headstage :octicons-arrow-right-24: adapter :octicons-arrow-right-24: Intan Controllers. |
-| 3. Verify REF/GND connections (platinum wire, bone screw, headstage ground, system ground). |
-| 4. Power on Intan RHS Controller and RHD Controller and confrim communication with headstage. |
-| 5. Update MCU firmware if needed. |
-| 6. Begin recording and stimulation tests. |
+1. Connect all GNDs in the system.
+2. Connect electrode array :octicons-arrow-right-24: headstage :octicons-arrow-right-24: adapter :octicons-arrow-right-24: Intan Controllers.
+3. Verify REF/GND connections (platinum wire, bone screw, headstage ground, system ground).
+4. Power on Intan RHS Controller and RHD Controller and confrim communication with headstage.
+5. Update MCU firmware if needed.
+6. Begin recording and stimulation tests.

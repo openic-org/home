@@ -37,11 +37,11 @@ graph LR
 
 Here are the descriptions of each component.
 
-|       Component       |            Page             |
-| :-------------------: | :-------------------------: |
-|       Headstage       | [Headstage](headstage_iris128s.md)   |
-|       Adapter         | [Adapter](adapter_iris128s.md)       |
-|         MCU           | [MCU](mcu_iris128s.md)               |
+|       Component       |            Page                            |
+| :-------------------: | :----------------------------------------: |
+|       Headstage       | [Headstage](headstage_iris128s.md)         |
+|       Adapter         | [Adapter](adapter_iris128s.md)             |
+|   Quickstart Guide    | [Quickstart Guide](quickstart_iris128s.md) |
 
 
 ## Specifications

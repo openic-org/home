@@ -46,13 +46,12 @@ graph LR
         
     end
     
-    b0["128
-        Electrode
-        Array"]
-    b1[Conn]
+    b0["128 Electrode Array
+        with matching
+        Conector"]
 
     %% Top-level connections
-    b0 <--> b1 <--> b2
+    b0 <--> b2
     b3 <--> PCB2
     PCB2 <--> i0["Intan Rec
                  Controller"]
@@ -194,6 +193,8 @@ We use an 8 layer stack where we prioritize shielding of the traces connecting t
 
 The PCB for the *headstage* has a size of 30.2 x 25.5 mm^2^. The table below shows the PCB specifications and the figures below show a rendering of the PCB top and bottom sides.
 
+<br>
+
 #### PCB Specifications
 
 |       PCB Specification       |       Value        |
@@ -231,6 +232,29 @@ The PCB for the *headstage* has a size of 30.2 x 25.5 mm^2^. The table below sho
 
 <br>
 
+#### Headstage PCB Vias
+
+| Layer | Via1 | &mu;Via1 | &mu;Via2 | &mu;Via3 | &mu;Via4 | &mu;Via5 | &mu;Via6 | &mu;Via7 |
+| :---: | :--: | :------: | :------: | :------: | :------: | :------: | :------: | :------: |
+| 1 | ----- | ----- |       |       |       |       |       |       |
+|   | \|    | \|    |       |       |       |       |       |       |
+| 2 | \|    | ----- | ----- |       |       |       |       |       |
+|   | \|    |       | \|    |       |       |       |       |       |
+| 3 | \|    |       | ----- | ----- |       |       |       |       |
+|   | \|    |       |       | \|    |       |       |       |       |
+| 4 | \|    |       |       | ----- | ----- |       |       |       |
+|   | \|    |       |       |       | \|    |       |       |       |
+| 5 | \|    |       |       |       | ----- | ----- |       |       |
+|   | \|    |       |       |       |       | \|    |       |       |
+| 6 | \|    |       |       |       |       | ----- | ----- |       |
+|   | \|    |       |       |       |       |       | \|    |       |
+| 7 | \|    |       |       |       |       |       | ----- | ----- |
+|   | \|    |       |       |       |       |       |       | \|    |
+| 8 | ----- |       |       |       |       |       |       | ----- |
+
+
+<br>
+
 ![](./../images/headstage-pcb-layers.png)
 
 <p style="text-align:center"><i><b>Figure 9.</b> PCB layout with detailed routing for each layer.</i></p>
@@ -242,29 +266,3 @@ The reference electrode `REF` is routed in layer L6 with its trace shielded with
 ![](../images/headstage-ref-routing.png)
 
 <p style="text-align:center"><i><b>Figure 10.</b> Reference electrode routing.</i></p>
-
-<br>
-
-### PCB Stack
-
-The target PCB stack is shown below, with a total thickness of 1 mm.
-
-#### Headstage PCB Vias
-
-| Layer | Via1 | &mu;Via1 | &mu;Via2 | &mu;Via3 | &mu;Via4 | &mu;Via5 | &mu;Via6 | &mu;Via7 |
-| :---: | :--: | :------: | :------: | :------: | :------: | :------: | :------: | :------: |
-| 1 | ----- | :octicons-dash-24::octicons-dash-24::octicons-dash-24: |  |  |  |  |  |  |
-|   | \|    | \|                 | | | | | | |
-| 2 | \|    | :octicons-dash-24: | --- | | | | | |
-|   | \|    |                    | \|                 | | | | | |
-| 3 | \|    |                    | --- | :octicons-dash-24: | | | | |
-|   | \|    |               |               |  $\textbar$   |               |               |               |               |
-| 4 | \|    |               |               | $\textemdash$ | $\textemdash$ |               |               |               |
-|   | \|    |               |               |               |  $\textbar$   |               |               |               |
-| 5 | \|    |               |               |               | $\textemdash$ | $\textemdash$ |               |               |
-|   | \|    |               |               |               |               |  $\textbar$   |               |               |
-| 6 | \|    |               |               |               |               | $\textemdash$ | $\textemdash$ |               |
-|   | \|    |               |               |               |               |               |  $\textbar$   |               |
-| 7 | \|    |               |               |               |               |               | $\textemdash$ | $\textemdash$ |
-|   | \|    |               |               |               |               |               |               |  $\textbar$   |
-| 8 | ----- |              |               |               |               |               |               | $\textemdash$ |
