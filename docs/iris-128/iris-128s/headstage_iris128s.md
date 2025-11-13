@@ -158,6 +158,8 @@ The `RHD2164` and `RHS2116` *Intan* chips are used here without any modification
 
 We are using the 36-pin A79024-001 *Omnetics* connector to bring all the signals from the headstage to the controller PCB. Using a single connector helps with simplifying the design. We assign the pins in the connector based on the three main parts of the headstage: recording, stimulation, and switches. This can be seen in the table and figure below.
 
+<br>
+
 |  Pin Number  | Description |  Pin Number  | Description |
 | :----------: | :---------: | :----------: | :---------: |
 |    `T18`     |   VSTIMm    |    `B18`     |    VDD2     |
@@ -185,28 +187,24 @@ We are using the 36-pin A79024-001 *Omnetics* connector to bring all the signals
 
 <p style="text-align:center"><i><b>Figure 8.</b> Details of the Interface Connector footprint.</i></p>
 
-<br>
-
 ## PCB
 
 We use an 8 layer stack where we prioritize shielding of the traces connecting the electrode array with the analog switches and recording chip `RHD2164`. The table below shows a summary of our strategy. The top L1 and bottom L2 layers are used for minimal local routing around the components and `GND` plane. Layer L2 is used for supply and SPI routing of the analog switches. Adding a `GND` plane allows us to also use this layer for sensitive routing between the electrode pins and the analog switches (see figure below). Layer L3 is used as a `GND` plane to shield any signal routing from the switches supplies and SPI routing. Layers L4, L5, and L6 are used for analog routing between the electrode pins, switches, recording `RHD2164`, and stimulation `RHS2116` chips. Layer L4 is also used to route the `RHD2164` supplies from the interface connector. This routing is localized to the far right side of the board and shielded with `GND` planes in layers L3, L4, and L5. Layer L7 is used for some additional local routing between the switches and to bring the SPI signals to the interface connector. The SPI routing is shielded with a `GND` plane in layers L6, L7, and, where possible, in layer L8.
 
 The PCB for the *headstage* has a size of 30.2 x 25.5 mm^2^. The table below shows the PCB specifications and the figures below show a rendering of the PCB top and bottom sides.
 
-<br>
-
 #### PCB Specifications
 
-|       PCB Specification       |       Value        |
+| PCB Specification             | Value              |
 | :---------------------------: | :----------------: |
-|             Size              | 30.2 x 25.5 mm^2^ |
-|       Trace Width/Space       |   3 mil / 3 mil    |
-|            Layers             |         8          |
-| Thru-Hole Via (Hole/Diameter) |   8 mil / 14 mil   |
-|   Microvia  (Hole/Diameter)   |   6 mil / 12 mil   |
-|           Thickness           |  0.039 in (1 mm)   |
-|        Surface Finish         |        ENIG        |
-|         Copper Weight         |        1 oz        |
+| Size                          | 30.2 x 25.5 mm^2^  |
+| Trace Width/Space             | 3 mil / 3 mil      |
+| Layers                        | 8                  |
+| Thru-Hole Via (Hole/Diameter) | 8 mil / 14 mil     |
+| Microvia  (Hole/Diameter)     | 6 mil / 12 mil     |
+| Thickness                     | 0.039 in (1 mm)    |
+| Surface Finish                | ENIG               |
+| Copper Weight                 | 1 oz               |
 
 <br>
 
@@ -214,21 +212,21 @@ The PCB for the *headstage* has a size of 30.2 x 25.5 mm^2^. The table below sho
 
 | Layer  | Notes                                                        |
 | :----: | ------------------------------------------------------------ |
-|   1    | Minimal local routing + GND plane                            |
+| 1      | Minimal local routing + `GND` plane                            |
 |        | Prepreg                                                      |
-|   2    | Supplies + SPI + some electrode signal routing + `GND` plane |
+| 2      | Supplies + SPI + some electrode signal routing + `GND` plane |
 |        | Core                                                         |
-|   3    | GND plane                                                    |
+| 3      | GND plane                                                    |
 |        | Prepreg                                                      |
-|   4    | Signal routing + some supply traces + `GND` plane            |
+| 4      | Signal routing + some supply traces + `GND` plane            |
 |        | Core                                                         |
-|   5    | Signal routing + `GND` plane                                 |
+| 5      | Signal routing + `GND` plane                                 |
 |        | Prepreg                                                      |
-|   6    | Signal routing + `GND` plane                                 |
+| 6      | Signal routing + `GND` plane                                 |
 |        | Core                                                         |
-|   7    | `GND` plane + SPI routing                                    |
+| 7      | `GND` plane + SPI routing                                    |
 |        | Prepreg                                                      |
-|   8    | Minimal local routing + `GND` plane                          |
+| 8      | Minimal local routing + `GND` plane                          |
 
 <br>
 

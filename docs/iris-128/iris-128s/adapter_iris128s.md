@@ -2,7 +2,6 @@
 
 The adapter consists of a 36-pin Omnetics connector, a 12-pin Omnetics connector, a 16-pin Omnetics connector, a power management unit (PMU) block, a microcontroller unit (MCU), and a programmer connector. This system is shown in the figure below.
 
-
 ``` mermaid
 graph LR
     %% PCB Definition
@@ -50,9 +49,9 @@ graph LR
     
 ```
 
-<br>
-
 <p style="text-align:center"><i><b>Figure 1.</b> System architecutre of the Adapter.</i></p>
+
+<br>
 
 The figure below shows the different components of the adapter.
 
@@ -85,8 +84,6 @@ The table below shows the main components of the Iris-128S adapter. Note the com
 | `PMU` | Power management unit which generaters +3 V and &plusmn;9 V. |
 | `X1` | `ECX-1210B` 32.768 kHz Crystal. |
 
-<br>
-
 ---
 
 ## Power Management Unit - PMU
@@ -102,8 +99,6 @@ The PMU scheme is to provide the analog switches and MCU with their required vol
 |      Source       |  Rec Controller  |  Stim Controller | Unknown     |
 |   Input Voltage   |    +3.2 - 3.6 V  |   +3.2 - 3.6 V   | +3.3 V      |
 
-<br>
-
 ### Ground Scheme
 
 We have a total of 3 different grounds in the system. These are `GND1` from the Recording controller, `GND2` from the Stimulation controller, and `GND3` from the Pin Headers. We use a commong ground plane for both `GND1` and `GND2`, and two connection points between `GND1` and `GND3` planes using `Net_Ties` close to connectors `S4` and `S5`.
@@ -114,8 +109,6 @@ We have a total of 3 different grounds in the system. These are `GND1` from the 
 | :------------: | :---------------------: |
 | `GND1` = `GND2`| 2x RHD2164 & 1x RHS2116 |
 |   `GND3`       | PMU + MCU + Switches    |
-
-<br>
 
 ### Power Requirements
 
@@ -132,8 +125,6 @@ We have a total of 3 different grounds in the system. These are `GND1` from the 
 |              `ADGS5414` - ISS             |                  1 uA                   |     8     |  8 uA  |
 |           `ADGS5414` - IL (1 MHz)         |                  30 uA                  |     8     | 240 uA |
 
-<br>
-
 #### Output Current Requirement Estimation per Regulator
 
 |   Regulator    | Supply | Voltage | Iout (Max) | Components | Required Output Current (Max)  |
@@ -143,7 +134,6 @@ We have a total of 3 different grounds in the system. These are `GND1` from the 
 | `TLV711` - Vout1 | `VDD3V`  |  +3 V   | 200 mA | `ADGS5414` - VL<br>`STM32U083` - VDD<br>`STM32U083` - Programming | 240 uA<br>100 uA<br>~10 mA |
 | `TLV711` - Vout2 | `VDDA3V` |  +3 V   | 200 mA | `STM32U083` - VDDA | 50 uA |
 
-<br>
 
 ### Block Diagram
 
@@ -239,6 +229,8 @@ graph LR
 	out4 --> STM32U083-VDDA
 ```
 
+<p style="text-align:center"><i><b>Figure 3.</b> Block diagram of the PMU.</i></p>
+
 <br>
 
 ---
@@ -282,7 +274,6 @@ graph LR
 |     31     |   PF3-BOOT0    |        BOOT0          |     GND (via 0$\Omega$)           |
 |     33     |  Exposed Pad   |     Exposed Pad       |               GND                 |
 
-<br>
 
 ### Pin Connections
 
@@ -293,14 +284,14 @@ graph LR
 * No power up/down sequence required.
 
 **Bypass Capacitors:**
-* VDD - VSS
+
+* `VDD` - `VSS`
   * 1x 4.7 uF ceramic cap.
   * 1x 100 nF ceramic cap per VDD pin.
-* VDDA - VSS
+* `VDDA` - `VSS`
   * 1x 1 uF ceramic cap.
   * 1x 100 nF ceramic cap.
   * 1x 10 nF ceramic cap.
-
 
 #### SWD: Pins SWDIO (23), SWCLK (24)
 
@@ -308,7 +299,7 @@ graph LR
 
 #### BOOT0: Pin BOOT0 (31)
 
-* 1x 0$\Omega$ resistor to GND.
+* 1x 0 &Omega; resistor to `GND`.
 
 #### Reset: Pin NRST (4)
 
@@ -319,8 +310,6 @@ graph LR
 #### LF External Oscillator (2, PC14-OSC32_IN; 3, PC15-OSC32_OUT)
 
 The `X1` crystal used in the board is the *ECX-1210B* by *ECS*, with a C~L~ = 6 pF.
-
-<br>
 
 #### J4 - Programming Connector
 
@@ -335,7 +324,6 @@ The `X1` crystal used in the board is the *ECX-1210B* by *ECS*, with a C~L~ = 6 
 <br>
 
 #### J5 - GPIO Connector
-
 
 | Pin Number | Description       | Pin Number | Description      |
 | :--------: | :---------------: | :--------: | :--------------: |
@@ -360,19 +348,15 @@ The `X1` crystal used in the board is the *ECX-1210B* by *ECS*, with a C~L~ = 6 
 2. `GPIO`: Configuring MCU I/Os.
 3. `SPI3`: SPI block.
 
-<br>
-
 #### GPIOs
 
-| Pin Name | Signal on Pin  | GPIO Output Level | GPIO Mode        | GPIO Pull-up/Pull-down |
+| Pin<br>Name | Signal<br>on Pin  | GPIO<br>Output Level | GPIO<br>Mode        | GPIO<br>Pull-up/Pull-down |
 | -------- | -------------- | ----------------- | ---------------- | ---------------------- |
 | PA8      | N/A            | Low               | Output Push Pull | No pull-up/pull-down   |
 | PA15     | N/A (SPI3_NSS) | Low               | Output Push Pull | No pull-up/pull-down   |
 | PB3      | SPI3_SCK       | N/A               | Alternate Function Push Pull | No pull-up/pull-down   |
 | PB4      | SPI3_MISO      | N/A               | Alternate Function Push Pull | No pull-up/pull-down   |
 | PB5      | SPI3_MOSI      | N/A               | Alternate Function Push Pull | No pull-up/pull-down   |
-
-<br>
 
 #### SPI Block in MCU
 
@@ -385,8 +369,6 @@ The `X1` crystal used in the board is the *ECX-1210B* by *ECS*, with a C~L~ = 6 
 | Baud Rate    | 62.5 kb/s          |
 | CPOL         | Low                |
 | CPHA         | 1 Edge             |
-
-<br>
 
 ### Building & Flashing
 
@@ -432,8 +414,6 @@ const char sw8 = (char)(0b00000000);
 !!! Warning
 	When configuring a stimulation channel, make sure to `OPEN` the switch connected to the `RHD2164`. Failure to do so can cause damage to the `RHD2164` due to the possibility of higher than expected voltages at its input.
 
-<br>
-
 ### FW variables values for recording through RHD2164 chips
 
 | Variable |   Value    |
@@ -446,8 +426,6 @@ const char sw8 = (char)(0b00000000);
 |   sw6    | 0b11111111 |
 |   sw7    | 0b00000000 |
 |   sw8    | 0b00000000 |
-
-<br>
 
 ### FW variables values for Stim through RS0
 
@@ -462,10 +440,25 @@ const char sw8 = (char)(0b00000000);
 |   sw7    | 0b00000000 |
 |   sw8    | 0b00000010 |
 
-<br>
-
 ### Further Development
 
 The current use of the MCU is to program the state of the switches in the headstage after the `adapter` board is powered on. You could further expand the functions of the MCU to adapt the `Iris-128s` neural interface to your project. For this purpose, the `adapter` board features a `reset button`, a `32 kHz crystal`, and a `expansion port` with flexible `GPIO` for easy prototyping and development.
 
+---
 
+## PCB
+
+The PCB for the *adapter* has a size of 50 x 40 mm^2^. The table below shows the PCB specifications.
+
+#### PCB Specifications
+
+| PCB Specification             | Value              |
+| :---------------------------: | :----------------: |
+| Size                          | 50 x 40 mm^2^      |
+| Trace Width/Space             | 5 mil / 5 mil      |
+| Layers                        | 4                  |
+| Thru-Hole Via (Hole/Diameter) | 10 mil / 20 mil    |
+| Thickness                     | 0.062 in (1.6 mm)  |
+| Surface Finish                | ENIG               |
+| Copper Weight                 | 1 oz               |
+| Dielectric                    | Standard FR4       |

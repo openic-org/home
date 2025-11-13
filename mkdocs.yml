@@ -17,6 +17,11 @@ nav:
       - Headstage: iris-128/iris-128s/headstage_iris128s.md
       - Adapter: iris-128/iris-128s/adapter_iris128s.md
       - Quickstart: iris-128/iris-128s/quickstart_iris128s.md
+    - Thin-Film:
+      - iris-128/thin-film/index.md
+    - License:
+      - LICENSE: LICENSE.txt
+      - NOTICE: NOTICE.txt
   - Tutorials:
     - tutorials/index.md
     - Xschem with Pcells: tutorials/xschem-pcell.md
@@ -76,10 +81,15 @@ markdown_extensions:
           format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.arithmatex:
       generic: true
+  - pymdownx.critic
+  - pymdownx.caret
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.tilde
 
 extra_javascript:
-  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
-  - javascripts/tablesort.js
+#  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
+#  - javascripts/tablesort.js
   - javascripts/mermaid.mjs
   - javascripts/katex.js
   - https://unpkg.com/katex@0/dist/katex.min.js

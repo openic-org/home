@@ -42,6 +42,8 @@ graph LR
 ```
 <p style="text-align:center"><i><b>Figure 1.</b> System Architecture of Iris-128S.</i></p>
 
+<br>
+
 ---
 
 ## 2. Hardware Components
@@ -97,7 +99,7 @@ The table below shows the main components of the Iris-128S headstage. Note the c
 
 ---
 
-### 2.4. Electrode Mapping
+### 2.2. Electrode Mapping
 
 The figure below shows the mapping between the *Electrode Array Connector, RHD2164 recording chips, and RHS2116 stim/record chip*.
 
@@ -337,26 +339,30 @@ The table below shows the main components of the Iris-128S adapter. Note the com
 
 ## 3. Programming the Adapter MCU
 
-The `adapter` board has a `STM32U083` ultra-low-power Arm M0+ 32-bit microcontroller (MCU) which is used to program the state of the switches in the headstage through `SPI` communication. You can use any tool you want to build the firmware and program the MCU; here we use the `STM32Cube` tools. You can download all the project documents from our [github repository](https://github.com/openic-org/iris-128).
+The `adapter` board has a `STM32U083` ultra-low-power Arm M0+ 32-bit microcontroller (MCU) which is used to program the state of the switches in the headstage through `SPI` communication. You can use any tool you want to build the firmware and program the MCU; here we use the `STM32Cube` tools. You can download all the project documents from our [GitHub repository](https://github.com/openic-org/iris-128).
 
 ### Building & Programming the Project
 
 1\. Install software & hardware:
+
    * `STM32CubeIDE`
    * `STM32CubeProgrammer`
    * `STLINK-V3` box with cable (for programming the STM32)
 
 2\. Download and import the project files:
+
    * From `GitHub`, locate the controller folder.
    * In `STM32CubeIDE`, go to File → Import → Existing Projects into Workspace.
    * Select the controller folder and finish the import.
 
 3\. Connect the hardware:
+
    * Connect the `adapter` board to the `STLINK-V3` through the programming port.
    * Connect the Intan `RHD Controller` and `RHS controller` using the Intan Record and Stim cables.
    * Power on the `RHD Controller` (first) and `RHS controller`.
 
 4\. Open the project in `STM32CubeIDE`:
+
    * Open the `controller.ioc` file.
 
 ![](../images/iris-128s-cubeIDE.png)
@@ -366,9 +372,10 @@ The `adapter` board has a `STM32U083` ultra-low-power Arm M0+ 32-bit microcontro
 <br>
 
 5\. Open and edit code:
+
    * In the Project Explorer, open `main.c`.
    * Edit the switch states as described below (these control which electrodes connect to which chip).
-     * Example: To switch electrode RS0 from RHD to RHS, set the corresponding value in the switch matrix to 1 - in the screenshots. Section 2.4 lists the switch positions.
+     * Example: To switch electrode RS0 from RHD to RHS, set the corresponding value in the switch matrix to 1 - in the screenshots. Section 2.2 lists the switch positions.
 
 ![](../images/iris-128s-switches0.png)
 
@@ -407,14 +414,17 @@ aTxBuffer[7] = 0b00000001; // sw8
 <br>
 
 6\. Build and compile:
+
    * Click the :hammer: icon (“Build Project”) to compile.
    * Wait for “Build Finished” to appear in the console.
 
 7\. Locate the compiled output:
+
    * The compiled firmware file is saved in the project’s `Debug` folder:<br>`C:\Users\...\STM32CubeIDE\workspace_1.17.0\controller\Debug\controller.elf`
    * This `.elf` file can be used directly with `STM32CubeProgrammer`.
 
 8\. Flash the controller using `STM32CubeProgrammer`:
+
    * Open `STM32CubeProgrammer`.
    * Connect to the board via `STLINK-V3`.
    * Click `Open file` and select `controller.elf` (or `controller.bin` if generated).
@@ -427,6 +437,7 @@ aTxBuffer[7] = 0b00000001; // sw8
 <br>
 
 9\. Verify the update:
+
    * Restart the Intan RHD and RHS software.
    * Check that the switches have updated correctly (e.g., this can be checked by running the impedance function in Intan RHS controller for that electrode. It should switch from the RHD controller to the RHS controller. Unconnected channels will have MOhm impedances.).
 
@@ -447,7 +458,6 @@ aTxBuffer[7] = 0b00000001; // sw8
 | 9  | Flash firmware                          | `CubeProgrammer` |
 | 10 | Verify in Intan software                |           |
 
-<br>
 
 ### Changing the State of the Switches
 
@@ -477,7 +487,6 @@ aTxBuffer[7] = 0b00000000; // sw8
 !!! Warning
 	When configuring a stimulation channel, make sure to `OPEN` the switch connected to the `RHD2164`. Failure to do so can cause damage to the `RHD2164` due to the possibility of higher than expected voltages at its input.
 
-<br>
 
 ### Further Development
 
@@ -487,17 +496,23 @@ The current use of the MCU is to program the state of the switches in the headst
 
 ## 4. Hardware Setup
 
+The figures below show the required hardware setup.
+
 ![](../images/iris-128s-setup-diagram.jpg)
+
+<p style="text-align:center"><i><b>Figure 11.</b> Hardware setup diagram.</i></p>
+
+<br>
 
 ![](../images/iris-128s-setup-picture.jpg)
 
-<p style="text-align:center"><i><b>Figure 11.</b> Hardware setup diagram and picture.</i></p>
+<p style="text-align:center"><i><b>Figure 12.</b> Hardware setup picture.</i></p>
 
 <br>
 
 ![](../images/iris-128s-meas-pbs.jpg)
 
-<p style="text-align:center"><i><b>Figure 12.</b> Iris-128S performing measurements in PBS inside a Faraday cage.</i></p>
+<p style="text-align:center"><i><b>Figure 13.</b> Iris-128S performing measurements in PBS inside a Faraday cage.</i></p>
 
 
 ### Step 1 — Prepare for Surgery
@@ -542,7 +557,7 @@ The current use of the MCU is to program the state of the switches in the headst
 
 ![](../images/iris-128s-computers.jpg)
 
-<p style="text-align:center"><i><b>Figure 13.</b> Two computers running the (left) Intan Recording Controller software and (right) Stimulation/Recording Controller software.</i></p>
+<p style="text-align:center"><i><b>Figure 14.</b> Two computers running the (left) Intan Recording Controller software and (right) Stimulation/Recording Controller software.</i></p>
 
 ---
 
@@ -597,7 +612,7 @@ The current use of the MCU is to program the state of the switches in the headst
 - The **36-wire custom cable** was built on-premise; contact **manuel@openic.org** for any questions.
 - The **design files, schematics, BOMs, and firware** are open-source on GitHub (OpenIC / U Oregon).
 - The Iris 128B and 128S share identical PCB stack-up and fabrication parameters:
-  – 8-layer (3 mil trace / space, ENIG finish, 1 oz Cu).  
+  - 8-layer (3 mil trace / space, ENIG finish, 1 oz Cu).  
 - Designed in **KiCad**, `STM32CubeIDE`, verified by **micro-CT imaging** and **in vivo rat recordings**.
 - For portable or wireless operation, future iterations aim to reduce weight < 3 g.
 

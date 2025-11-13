@@ -35,6 +35,8 @@ graph LR
 ![Iris-128S System](../images/iris-128s-schematic.jpg)
 <p style="text-align:center"><i><b>Figure 3.</b> Schematic of Iris-128S.</i></p>
 
+<br>
+
 Here are the descriptions of each component.
 
 |       Component       |            Page                            |
@@ -50,10 +52,10 @@ Here are the descriptions of each component.
 * Stimulation from 32 designated channels, where up to 16 of them can be selected for simultaneous stimulation.
 * Compatible with Intan Recording Controller and Intan Stim/Record Controller.
 * *SEAM8 Samtec* connector for interfacing with 128-ch electrode array and compatible with *BlackRock Cereplex E headstages*.
-* The *headstage* has a size of 30.2 x 25.5 mm$^2$.
+* The *headstage* has a size of 30.2 x 25.5 mm^2^.
 * *Omnetics 36-POS* connector to interface with *Adapter* board through a single cable.
 * *Adapter* board draws power directly from the Intan Recording Controller to power itself and the *headstage*.
 * On-board power management unit (PMU) in the *Adapter* board generates the required supplies for the MCU and *ADGS5414* switches.
 * Programmer in the *Adapter* board is only needed to update the firmware in the MCU, i.e., change the state of the *ADGS5414* switches. After MCU is programmed, only the Intan controlleres are needed.
-* The *adapter* has a size of 50 x 40 mm$^2$.
+* The *adapter* has a size of 50 x 40 mm^2^.
 

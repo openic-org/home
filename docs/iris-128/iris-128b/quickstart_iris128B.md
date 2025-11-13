@@ -144,8 +144,6 @@ Use a bench DC power supply such as the HP E3631A Triple Output DC Power Supply 
 - **Sampling Rates:** 1 – 30 kS/s  
 - **Test Waveform:** Biphasic cathodic-first 4 µA, 500 µs pulses, 100 Hz (0.1 mC/cm² charge density)
 
-*Placeholder image: representative biphasic waveform and voltage transient plots*
-
 ---
 
 ## 10. Additional Notes
@@ -153,9 +151,9 @@ Use a bench DC power supply such as the HP E3631A Triple Output DC Power Supply 
 - The Molex #205058-1002 cable assembly is discontinued; contact  
   **fdeku@uoregon.edu** or **manuel@openic.org** for updated options.  
 - The design files, schematics, and BOMs are open-source on GitHub (OpenIC / U Oregon).  
-- The Iris 128B and 128S share identical PCB stack-up and fabrication parameters:  
-  – 8-layer (3 mil trace / space, ENIG finish, 1 oz Cu).  
-- Designed in KiCad*, verified by micro-CT imaging and in vivo electrophysiology recordings.  
+- The Iris 128B and 128S share identical PCB stack-up and fabrication parameters:
+  - 8-layer (3 mil trace / space, ENIG finish, 1 oz Cu).  
+- Designed in *KiCad*, verified by micro-CT imaging and in vivo electrophysiology recordings.  
 - For portable or wireless operation, future iterations aim to reduce weight < 5 g and integrate on-board power management.
 
 ---
@@ -167,5 +165,3 @@ Use a bench DC power supply such as the HP E3631A Triple Output DC Power Supply 
 3. Verify REF/GND connections (platinum wire → bone screws).  
 4. Enable power and confirm communication in Intan software.  
 5. Begin recording and stimulation tests.
-
-*Placeholder image: summary diagram showing full experiment wiring flow*
