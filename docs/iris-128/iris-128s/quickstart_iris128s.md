@@ -337,19 +337,115 @@ The table below shows the main components of the Iris-128S adapter. Note the com
 
 ## 3. Programming the Adapter MCU
 
-### Building & Flashing
+The `adapter` board has a `STM32U083` ultra-low-power Arm M0+ 32-bit microcontroller (MCU) which is used to program the state of the switches in the headstage through `SPI` communication. You can use any tool you want to build the firmware and program the MCU; here we use the `STM32Cube` tools. You can download all the project documents from our [github repository](https://github.com/openic-org/iris-128).
 
-The `adapter` board has a `STM32U083` ultra-low-power Arm M0+ 32-bit microcontroller (MCU) which is used to program the state of the switches in the headstage through `SPI` communication. You can use any tool you want to build the firmware and program the MCU; here we use the `STM32Cube` tools. The figure below shows a screenshot of the `STM32CubeIDE` with the `main.c` file in the center panel. You can download all the project documents from our [github repository](https://github.com/openic-org/iris-128). To build the project, click on the :hammer: button.
+### Building & Programming the Project
 
-![](../images/stm32cubeide.png)
-<p style="text-align:center"><i><b>Figure 7.</b> Screenshoot of the <b>STM32CubeIDE</b> with the <b>main.c</b> file in the center panel.</i></p>
+1\. Install software & hardware:
+   * `STM32CubeIDE`
+   * `STM32CubeProgrammer`
+   * `STLINK-V3` box with cable (for programming the STM32)
+
+2\. Download and import the project files:
+   * From `GitHub`, locate the controller folder.
+   * In `STM32CubeIDE`, go to File → Import → Existing Projects into Workspace.
+   * Select the controller folder and finish the import.
+
+3\. Connect the hardware:
+   * Connect the `adapter` board to the `STLINK-V3` through the programming port.
+   * Connect the Intan `RHD Controller` and `RHS controller` using the Intan Record and Stim cables.
+   * Power on the `RHD Controller` (first) and `RHS controller`.
+
+4\. Open the project in `STM32CubeIDE`:
+   * Open the `controller.ioc` file.
+
+![](../images/iris-128s-cubeIDE.png)
+
+<p style="text-align:center"><i><b>Figure 7.</b> Screenshoot of the <b>STM32CubeIDE</b> showing the <b>controller.ioc</b>.</i></p>
 
 <br>
 
-To program the MCU, we use the `STM32CubeProgrammer`. Connect the `STLINK-V3` to the computer and the `adapter` board using the 10-pin ribbon cable. Press the `Connect` button to connect and identify the board. Program or `flash` the MCU by clicking on `Program`.
+5\. Open and edit code:
+   * In the Project Explorer, open `main.c`.
+   * Edit the switch states as described below (these control which electrodes connect to which chip).
+     * Example: To switch electrode RS0 from RHD to RHS, set the corresponding value in the switch matrix to 1 - in the screenshots. Section 2.4 lists the switch positions.
 
-![](../images/stm32cubeprogrammer.png)
-<p style="text-align:center"><i><b>Figure 8.</b> Screenshoot of the <b>STM32CubeProgrammer</b>.</i></p>
+![](../images/iris-128s-switches0.png)
+
+<p style="text-align:center"><i><b>Figure 8.</b> Screenshoot of the <b>STM32CubeIDE</b> showing the <b>main.ioc</b>.</i></p>
+
+<br>
+
+<div class="grid" markdown>
+
+```c title="Switch=0"
+aTxBuffer[0] = 0b00000000; // sw1
+aTxBuffer[1] = 0b00000000; // sw2
+aTxBuffer[2] = 0b11111111; // sw3
+aTxBuffer[3] = 0b11111111; // sw4
+aTxBuffer[4] = 0b11111111; // sw5
+aTxBuffer[5] = 0b11111111; // sw6
+aTxBuffer[6] = 0b00000000; // sw7
+aTxBuffer[7] = 0b00000000; // sw8
+```
+
+```c title="Switch=1"
+aTxBuffer[0] = 0b00000000; // sw1
+aTxBuffer[1] = 0b00000000; // sw2
+aTxBuffer[2] = 0b11111111; // sw3
+aTxBuffer[3] = 0b11111111; // sw4
+aTxBuffer[4] = 0b10111111; // sw5
+aTxBuffer[5] = 0b11111111; // sw6
+aTxBuffer[6] = 0b00000000; // sw7
+aTxBuffer[7] = 0b00000001; // sw8
+```
+
+</div>
+
+<p style="text-align:center"><i><b>Figure 9.</b> Changing the <b>RS0</b> switch state from RHD to RHS.</i></p>
+
+<br>
+
+6\. Build and compile:
+   * Click the :hammer: icon (“Build Project”) to compile.
+   * Wait for “Build Finished” to appear in the console.
+
+7\. Locate the compiled output:
+   * The compiled firmware file is saved in the project’s `Debug` folder:<br>`C:\Users\...\STM32CubeIDE\workspace_1.17.0\controller\Debug\controller.elf`
+   * This `.elf` file can be used directly with `STM32CubeProgrammer`.
+
+8\. Flash the controller using `STM32CubeProgrammer`:
+   * Open `STM32CubeProgrammer`.
+   * Connect to the board via `STLINK-V3`.
+   * Click `Open file` and select `controller.elf` (or `controller.bin` if generated).
+   * Click `Start Programming`.
+
+![](../images/iris-128s-programmerIDE.png)
+
+<p style="text-align:center"><i><b>Figure 10.</b> Screenshoot of the <b>STM32CubeProgrammer</b> showing the <b>main.ioc</b>.</i></p>
+
+<br>
+
+9\. Verify the update:
+   * Restart the Intan RHD and RHS software.
+   * Check that the switches have updated correctly (e.g., this can be checked by running the impedance function in Intan RHS controller for that electrode. It should switch from the RHD controller to the RHS controller. Unconnected channels will have MOhm impedances.).
+
+<br>
+
+#### Quick Summary
+
+| Step | Action                                | Tool      |
+| :--: | :------------------------------------ | :-------: |
+| 1  | Install `CubeIDE` and `CubeProgrammer`  |           |
+| 2  | Import project                          | `CubeIDE` |
+| 3  | Connect hardware                        |           |
+| 4  | Open project and connect                | `CubeIDE` |
+| 5  | Edit `main.c`                           | `CubeIDE` |
+| 6  | Build project                           | `CubeIDE` |
+| 7  | Locate `controller.elf` in Debug folder |           |
+| 8  | (Optional) Generate `controller.bin`    | `CubeIDE` |
+| 9  | Flash firmware                          | `CubeProgrammer` |
+| 10 | Verify in Intan software                |           |
 
 <br>
 
@@ -368,14 +464,14 @@ You can change the state of each of the switches in the eight octal `ADGS5414` b
 ```c
 /* Switches states: swX=[7..0] */
 // Default values
-const char sw1 = (char)(0b00000000);
-const char sw2 = (char)(0b00000000);
-const char sw3 = (char)(0b11111111);
-const char sw4 = (char)(0b11111111);
-const char sw5 = (char)(0b11111111);
-const char sw6 = (char)(0b11111111);
-const char sw7 = (char)(0b00000000);
-const char sw8 = (char)(0b00000000);
+aTxBuffer[0] = 0b00000000; // sw1
+aTxBuffer[1] = 0b00000000; // sw2
+aTxBuffer[2] = 0b11111111; // sw3
+aTxBuffer[3] = 0b11111111; // sw4
+aTxBuffer[4] = 0b11111111; // sw5
+aTxBuffer[5] = 0b11111111; // sw6
+aTxBuffer[6] = 0b00000000; // sw7
+aTxBuffer[7] = 0b00000000; // sw8
 ```
 
 !!! Warning
@@ -391,6 +487,19 @@ The current use of the MCU is to program the state of the switches in the headst
 
 ## 4. Hardware Setup
 
+![](../images/iris-128s-setup-diagram.jpg)
+
+![](../images/iris-128s-setup-picture.jpg)
+
+<p style="text-align:center"><i><b>Figure 11.</b> Hardware setup diagram and picture.</i></p>
+
+<br>
+
+![](../images/iris-128s-meas-pbs.jpg)
+
+<p style="text-align:center"><i><b>Figure 12.</b> Iris-128S performing measurements in PBS inside a Faraday cage.</i></p>
+
+
 ### Step 1 — Prepare for Surgery
 
 1. Secure the animal in a **stereotaxic frame**.
@@ -398,8 +507,6 @@ The current use of the MCU is to program the state of the switches in the headst
 3. Seat the **thin-film electrode connector** into the holder.
 4. Plug the **Iris-128S headstage** into the thin-film connector.
 5. Fasten the headstage to the holder via mounting holes.
-
-*Placeholder image: headstage and thin-film connector mounted on stereotax frame*
 
 ---
 
@@ -411,8 +518,6 @@ The current use of the MCU is to program the state of the switches in the headst
    - **S1 :octicons-arrow-right-24: RHD Controller**
    - **S4 :octicons-arrow-right-24: RHS Controller**
 
-*Placeholder image: adapter board with S1–S2 mapping to Intan controllers*
-
 ---
 
 ### Step 3 — Ground and Reference
@@ -421,8 +526,6 @@ The current use of the MCU is to program the state of the switches in the headst
 - Keep `REF` and `GND` **unshorted** during normal operation.  
 - Optionally, these may be tied together or implemented on the thin-film array.  
 - Ensure the entire setup (animal, cage, supplies) shares a **common ground**.
-
-*Placeholder image: annotated close-up of headstage REF/GND pads and solder points*
 
 ---
 
@@ -437,7 +540,9 @@ The current use of the MCU is to program the state of the switches in the headst
 7. Launch the software in both computers — channels should automatically appear.  
 8. Adjust sampling rate and channel naming as needed.
 
-*Placeholder image: screenshot of Intan software showing active channels*
+![](../images/iris-128s-computers.jpg)
+
+<p style="text-align:center"><i><b>Figure 13.</b> Two computers running the (left) Intan Recording Controller software and (right) Stimulation/Recording Controller software.</i></p>
 
 ---
 
@@ -447,8 +552,6 @@ The current use of the MCU is to program the state of the switches in the headst
 2. **Turn on RHD Intan Controller.**  
 3. **Turn on RHS Intan Controller.**  
 5. Verify communication in the Intan software.
-
-*Placeholder image: full system powered, showing flow of power and data arrows*
 
 ---
 
@@ -461,8 +564,6 @@ The current use of the MCU is to program the state of the switches in the headst
 | **Recording** | Launch Intan software :octicons-arrow-right-24: set sampling rate 30 kSa/s :octicons-arrow-right-24: confirm signal. |
 | **In Vivo Setup** | Craniotomy :octicons-arrow-right-24: insert MEA into cortex :octicons-arrow-right-24: connect headstage. |
 | **Validation** | Observe LFPs (0.5–100 Hz) and single-unit spikes (~250–500 &mu;Vpp). |
-
-*Placeholder image: table-to-diagram flow of bench to in-vivo steps*
 
 ---
 
@@ -478,8 +579,6 @@ The current use of the MCU is to program the state of the switches in the headst
 | Impedance (1 kHz, Pt site) | ~2.9 × 10^5^ &Omega; | 2.4 × 10^5^ &Omega; |
 | Supply | &plusmn;7 V & 3.3 V | 3.3 V (single) |
 
-*Placeholder image: comparison bar chart of noise / impedance / bandwidth metrics*
-
 ---
 
 ## 9. Stimulation Parameters
@@ -490,8 +589,6 @@ The current use of the MCU is to program the state of the switches in the headst
 - **Supply Range:** ±3.3 – 10.7 V (max combined 14 V)  
 - **Sampling Rates:** 1 – 30 kS/s  
 - **Test Waveform:** Biphasic cathodic-first 4 µA, 500 µs pulses, 100 Hz (0.1 mC/cm² charge density)
-
-*Placeholder image: representative biphasic waveform and voltage transient plots*
 
 ---
 
