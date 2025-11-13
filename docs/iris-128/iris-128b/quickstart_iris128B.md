@@ -34,13 +34,15 @@ Use a bench DC power supply such as the HP E3631A Triple Output DC Power Supply 
 
 ## 3. Hardware Components
 
-- **Headstage (Iris-128B)**  
+- **Headstage (Iris-128B)** 
+ 
   - 8 × Intan RHS2116 ICs (recording + stimulation)  
   - Samtec SEAF8 connector (160-pin) for thin-film MEA  
   - Molex 80-pin nanopitch output to adapter  
   - ±3.3 – 7 V supply range  
 
 - **Adapter Board**  
+
   - Passive signal routing (no active components)  
   - 4 × Omnetics A79633 connectors to Intan RHS ports A–D  
   - 3 × barrel jacks for ±Vstim and VCC  
@@ -67,7 +69,8 @@ Use a bench DC power supply such as the HP E3631A Triple Output DC Power Supply 
 
 1. Connect the Molex 80-pin cable between headstage and adapter.  
 2. Route this cable outside the Faraday cage.  
-3. Plug in the 4 RHS interface cables (red Omnetics):  
+3. Plug in the 4 RHS interface cables (red Omnetics):
+
    - **S1 → Port A** (shared CLK and CS)  
    - **S2 → Port B**  
    - **S3 → Port C**  
@@ -95,8 +98,10 @@ Use a bench DC power supply such as the HP E3631A Triple Output DC Power Supply 
 
 1. Confirm the Intan controller and power supplies are connected to the chassis ground on the controller (green plug on back of controller) and the grounds on the power supply are all connected to each other as well.  
 2. Set voltages on the HP E3631A:  
+
    - +7 V, –7 V, +3.3 V rails  
    - 100 mA current limits  
+
 3. Plug barrel jacks into Vstim± and VCC inputs on the adapter.  
 4. Turn on the power supply. 
 5. Turn on the Intan Controller.
@@ -152,7 +157,9 @@ Use a bench DC power supply such as the HP E3631A Triple Output DC Power Supply 
   **fdeku@uoregon.edu** or **manuel@openic.org** for updated options.  
 - The design files, schematics, and BOMs are open-source on GitHub (OpenIC / U Oregon).  
 - The Iris 128B and 128S share identical PCB stack-up and fabrication parameters:
+  
   - 8-layer (3 mil trace / space, ENIG finish, 1 oz Cu).  
+
 - Designed in *KiCad*, verified by micro-CT imaging and in vivo electrophysiology recordings.  
 - For portable or wireless operation, future iterations aim to reduce weight < 5 g and integrate on-board power management.
 
