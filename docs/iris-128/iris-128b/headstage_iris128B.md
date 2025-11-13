@@ -65,7 +65,7 @@ There are 8 total chips (16 electrodes each) communicating with the controller v
 
 ![Iris-128](../images/iris-128b-chip.jpg)
 
-*Fig. 3. Footprint of RHS2116 on Iris128B with broadly labeled pins. See the Intan RHS2116 datasheet for specific details. *
+*Fig. 3. Footprint of RHS2116 on Iris128B with broadly labeled pins. See the Intan RHS2116 datasheet for specific details.*
 
 The reference and ground pins can be shorted or disconnected using the pads shown below.
 
