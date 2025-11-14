@@ -20,8 +20,8 @@ nav:
     - Thin-Film:
       - iris-128/thin-film/index.md
     - License:
-      - LICENSE: LICENSE.txt
-      - NOTICE: NOTICE.txt
+      - LICENSE: iris-128/LICENSE.txt
+      - NOTICE: iris-128/NOTICE.txt
   - Tutorials:
     - tutorials/index.md
     - Xschem with Pcells: tutorials/xschem-pcell.md
