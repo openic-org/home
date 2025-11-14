@@ -286,12 +286,12 @@ graph LR
 **Bypass Capacitors:**
 
 * `VDD` - `VSS`
-  * 1x 4.7 uF ceramic cap.
-  * 1x 100 nF ceramic cap per VDD pin.
+    * 1x 4.7 uF ceramic cap.
+    * 1x 100 nF ceramic cap per VDD pin.
 * `VDDA` - `VSS`
-  * 1x 1 uF ceramic cap.
-  * 1x 100 nF ceramic cap.
-  * 1x 10 nF ceramic cap.
+    * 1x 1 uF ceramic cap.
+    * 1x 100 nF ceramic cap.
+    * 1x 10 nF ceramic cap.
 
 #### SWD: Pins SWDIO (23), SWCLK (24)
 

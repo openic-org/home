@@ -375,7 +375,7 @@ The `adapter` board has a `STM32U083` ultra-low-power Arm M0+ 32-bit microcontro
 
    * In the Project Explorer, open `main.c`.
    * Edit the switch states as described below (these control which electrodes connect to which chip).
-     * Example: To switch electrode RS0 from RHD to RHS, set the corresponding value in the switch matrix to 1 - in the screenshots. Section 2.2 lists the switch positions.
+       * Example: To switch electrode RS0 from RHD to RHS, set the corresponding value in the switch matrix to 1 - in the screenshots. Section 2.2 lists the switch positions.
 
 ![](../images/iris-128s-switches0.png)
 
@@ -530,8 +530,8 @@ The figures below show the required hardware setup.
 1. Connect the **36-pin custom cable** between `headstage` and `adapter`.
 2. Route this cable **outside the Faraday cage**.
 3. Plug in the **1 RHD interface cable** (blue Omnetics) and **1 RHS interface cable** (red Omnetics):
-   - **S1 :octicons-arrow-right-24: RHD Controller**
-   - **S4 :octicons-arrow-right-24: RHS Controller**
+    - **S1 :octicons-arrow-right-24: RHD Controller**
+    - **S4 :octicons-arrow-right-24: RHS Controller**
 
 ---
 
@@ -612,7 +612,7 @@ The figures below show the required hardware setup.
 - The **36-wire custom cable** was built on-premise; contact **manuel@openic.org** for any questions.
 - The **design files, schematics, BOMs, and firware** are open-source on GitHub (OpenIC / U Oregon).
 - The Iris 128B and 128S share identical PCB stack-up and fabrication parameters:
-  - 8-layer (3 mil trace / space, ENIG finish, 1 oz Cu).  
+    - 8-layer (3 mil trace / space, ENIG finish, 1 oz Cu).  
 - Designed in **KiCad**, `STM32CubeIDE`, verified by **micro-CT imaging** and **in vivo rat recordings**.
 - For portable or wireless operation, future iterations aim to reduce weight < 3 g.
 
